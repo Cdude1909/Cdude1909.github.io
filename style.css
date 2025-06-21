@@ -9,9 +9,14 @@
   --color-border: #2C2C2C;
   --shadow-glow: 0 0 15px rgba(255, 255, 255, 0.15);
   --shadow-glow-hard: 0 0 8px rgba(255, 255, 255, 0.3);
+
+  /* NEW CURSOR COLORS - Based on your image */
+  --cursor-dot-color: #00D0FF; /* Bright blue-green */
+  --cursor-outline-color: #00D0FF; /* Bright blue-green */
+  --cursor-outline-glow: rgba(0, 208, 255, 0.6); /* Semi-transparent glow */
 }
 
-/* --- BASE & PRE-ANIMATION STYLES --- */
+/* --- BASE & PRE-ANIMATION STYLES (Keep as is from your provided CSS) --- */
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-primary);
@@ -25,9 +30,9 @@ body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  background-image: url('images/background.jpg');
+  background-image: url('images/background.gif'); /* From your provided CSS */
   background-size: cover; background-position: center bottom; background-attachment: fixed;
-  filter: blur(8px) brightness(0.6);
+  filter: blur(4px) brightness(0.6); /* From your provided CSS */
   z-index: -1; transform: scale(1.1);
 }
 #sidebar, #main-content {
@@ -39,7 +44,7 @@ body::before {
   visibility: visible;
 }
 
-/* --- SPLASH SCREEN --- */
+/* --- SPLASH SCREEN (Keep as is from your provided CSS) --- */
 #splash-screen {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
@@ -71,7 +76,7 @@ body::before {
   display: none; /* JS will show this on desktop */
 }
 
-/* --- ANIMATIONS --- */
+/* --- ANIMATIONS (General and New Project Card Glow) --- */
 @keyframes fadeInContent { from { opacity: 0; } to { opacity: 1; } }
 #sidebar.visible, #main-content.visible {
   animation: fadeInContent 0.8s ease-out forwards;
@@ -80,30 +85,65 @@ body::before {
   from { opacity: 0.7; text-shadow: 0 0 5px rgba(255, 255, 255, 0.4); }
   to { opacity: 1; text-shadow: 0 0 15px rgba(255, 255, 255, 0.7); }
 }
-/* --- MOBILE HEADER STYLES --- */
+
+/* NEW: Project Card Glow (Applies on mobile only, continuous animation) */
+@keyframes continuous-card-glow {
+  0%, 100% { box-shadow: 0 0 5px var(--cursor-outline-color), 0 0 10px var(--cursor-outline-glow); }
+  50% { box-shadow: 0 0 8px var(--cursor-outline-color), 0 0 15px var(--cursor-outline-glow); }
+}
+/* Apply glow specifically to project cards when it's a mobile/coarse pointer device */
+@media (max-width: 767px), (pointer: coarse) {
+  .project-card {
+    animation: continuous-card-glow 3s infinite alternate ease-in-out;
+  }
+  /* Remove default hover glow for projects on mobile/coarse devices to avoid conflict */
+  .project-card.interactive:hover {
+      animation: none; /* Remove continuous glow on hover (if any was inherited) */
+      border-color: var(--color-border); /* Reset border color on hover */
+      box-shadow: var(--shadow-card); /* Reset box shadow on hover */
+      transform: none; /* Reset transform on hover */
+  }
+}
+/* Ensure desktop hover effects for cards are NOT the continuous glow */
+@media (min-width: 768px) {
+    .project-card.interactive:hover {
+        /* This is your original desktop hover effect for cards (if you had one, re-add here if needed) */
+        /* For example: */
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-glow);
+        transform: translateY(-4px);
+        animation: pulse-glow-white 1.5s infinite ease-in-out; /* Keep pulse for desktop hover */
+    }
+    .project-card { /* Ensure no continuous glow on desktop by default */
+        animation: none !important;
+    }
+}
+
+
+/* --- MOBILE HEADER STYLES (Keep as is from your provided CSS) --- */
 #mobile-header {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
-  display: flex; /* This is active on mobile screens */
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  z-index: 30; /* Ensures it's above the main content */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Adds depth */
-  
-  /* --- THIS IS WHERE YOU APPLY THE GIF --- */
-  background-image: url('images/terminal.png'); /* Your GIF path */
+  z-index: 30;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  background-image: url('images/terminal.png'); /* From your provided CSS */
   background-size: cover;
   background-position: center;
+ background-color: rgb(15 16 17 / 72%); 
+  backdrop-filter: blur(3px); 
 }
 
 @media (min-width: 768px) {
   #mobile-header {
-    display: none; /* This ensures it is hidden on desktop */
+    display: none;
   }
 }
-/* --- MOBILE LAYOUT & SIDEBAR --- */
+/* --- MOBILE LAYOUT & SIDEBAR (Keep as is from your provided CSS) --- */
 @media (max-width: 767px) {
   #sidebar {
     position: fixed;
@@ -118,15 +158,29 @@ body::before {
     transform: translateX(0);
     box-shadow: 2px 0 15px rgba(0,0,0,0.5);
   }
-  #sidebar-profile-pic { margin-top: 2rem; }
-  #main-content { margin-top: 72px; z-index: 1; }
+  #sidebar-profile-pic { margin-top: 4rem; } /* Adjusted from 2rem to 4rem for better spacing with mobile header */
+  #main-content { margin-top: 64px; z-index: 1; }
   nav ul { flex-direction: column; border-bottom: none; padding-bottom: 0; margin-top: 1.5rem; }
   nav ul li { width: 100%; margin-bottom: 0.5rem; }
   nav ul li a { justify-content: flex-start; padding: 0.75rem 1rem; border-radius: 0.375rem; }
   nav { background-color: transparent; box-shadow: none; padding: 0; margin: 0; position: static; }
+  #main-nav { display: flex; } /* Ensure flex display is active on mobile */
+
+  /* Splash text above images */
+  #splash-text-container {
+    z-index: 10;
+  }
+  /* Show only the morph profile pic on mobile */
+  #splash-profile-pic {
+    opacity: 1; /* Always visible for animation on mobile */
+    animation: pulse-glow-white 2s infinite ease-in-out; /* Keep pulse for initial state */
+  }
+  #splash-full-gif {
+    display: none; /* Hide GIF on mobile */
+  }
 }
 
-/* --- DESKTOP LAYOUT (Overrides mobile where needed) --- */
+/* --- DESKTOP LAYOUT (Overrides mobile where needed - Keep as is from your provided CSS) --- */
 @media (min-width: 768px) {
   #sidebar {
     opacity: 0; /* JS handles this */
@@ -136,10 +190,13 @@ body::before {
   #main-content {
     margin-top: 0;
   }
+  /* Ensure desktop nav is visible and has correct background */
+  nav { background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); box-shadow: var(--shadow-nav); }
+  nav ul { border-bottom: 1px solid var(--color-border); } /* Desktop nav border */
 }
 
 
-/* --- CUSTOM ANIMATED CURSOR --- */
+/* --- CUSTOM ANIMATED CURSOR (Themed - Updated logic only) --- */
 .cursor-dot, .cursor-outline {
   position: fixed;
   top: 0; left: 0;
@@ -147,22 +204,32 @@ body::before {
   border-radius: 50%;
   pointer-events: none; /* Allows clicks to pass through */
   z-index: 9999;
-  mix-blend-mode: difference; /* Creates a cool inverse color effect */
+  mix-blend-mode: normal; /* Changed from difference to normal for themed colors */
 }
-.cursor-dot { width: 8px; height: 8px; background-color: white; }
-.cursor-outline { width: 40px; height: 40px; border: 2px solid white; transition: transform 0.2s ease-out, width 0.3s ease-out, height 0.3s ease-out; }
-.cursor-outline.hover { transform: translate(-50%, -50%) scale(1.3); width: 50px; height: 50px; }
-.interactive { cursor: none; } /* Hide default cursor over interactive elements too */
+.cursor-dot { background-color: var(--cursor-dot-color); width: 8px; height: 8px; }
+.cursor-outline {
+  width: 40px; height: 40px;
+  border: 2px solid var(--cursor-outline-color);
+  box-shadow: 0 0 10px var(--cursor-outline-glow); /* Add initial glow */
+  transition: transform 0.2s ease-out, width 0.3s ease-out, height 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.cursor-outline.hover {
+  transform: translate(-50%, -50%) scale(1.3);
+  width: 50px; height: 50px;
+  box-shadow: 0 0 15px var(--cursor-outline-glow), 0 0 30px var(--cursor-outline-glow); /* More intense glow on hover */
+}
+.interactive { cursor: none; } /* Hide default cursor over interactive elements */
 ::selection { background-color: var(--color-accent); color: var(--color-bg-primary); }
 
-/* Disable custom cursor on touch/mobile devices or screens below 768px */
+/* Disable custom cursor on touch/mobile devices or screens below 768px (Keep as is) */
 @media (max-width: 767px), (pointer: coarse) {
   .cursor-dot, .cursor-outline { display: none; }
-  body { cursor: auto; } /* Restore default cursor */
-  .interactive { cursor: auto; } /* Restore default cursor for interactive elements */
+  body { cursor: auto; }
+  .interactive { cursor: auto; }
 }
 
-/* --- GENERAL ANIMATIONS --- */
+/* --- GENERAL ANIMATIONS (Keep as is from your provided CSS) --- */
+/* (All other @keyframes, etc., are kept from your provided CSS) */
 @keyframes slideInSidebarMobile { /* For mobile sidebar sliding in from left */
   from { transform: translateX(-100%); }
   to { transform: translateX(0); }
@@ -199,19 +266,20 @@ body::before {
   50% { box-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.3); }
 }
 
-/* --- TYPOGRAPHY & HEADINGS --- */
+
+/* --- TYPOGRAPHY & HEADINGS (Keep as is) --- */
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-mono); color: var(--color-primary-theme); letter-spacing: 0.5px; }
 .section-title { font-size: 1.75rem; line-height: 2.25rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; border-bottom: 1px solid var(--color-border); padding-bottom: 0.75rem; }
 .section-title svg { color: var(--color-accent) !important; }
 @media (min-width: 768px) { .section-title { font-size: 2rem; line-height: 2.5rem; margin-bottom: 2rem; } }
 
-/* --- LAYOUT & SIDEBAR (DESKTOP) --- */
+/* --- LAYOUT & SIDEBAR (Desktop) (Keep as is) --- */
 .main-content-area { position: relative; isolation: isolate; }
 aside { background-color: var(--color-bg-secondary); border-right: 1px solid var(--color-border); box-shadow: var(--shadow-card); position: relative; z-index: 10; }
 aside img { border-color: var(--color-accent); box-shadow: var(--shadow-glow-hard); }
 aside a:hover { color: var(--color-accent-hover); }
 
-/* --- NAVIGATION (DESKTOP) --- */
+/* --- NAVIGATION (Desktop) (Keep as is) --- */
 nav { background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); box-shadow: var(--shadow-nav); }
 @media (min-width: 768px) { nav { background-color: transparent; backdrop-filter: none; box-shadow: none; } }
 nav ul { border-color: var(--color-border); }
@@ -222,7 +290,7 @@ nav ul { border-color: var(--color-border); }
 .nav-link.active { color: var(--color-bg-primary); background-color: var(--color-accent); border-color: var(--color-accent); font-weight: 700; box-shadow: var(--shadow-glow-hard); }
 .nav-link.active svg { color: var(--color-bg-primary); }
 
-/* --- CARDS & COMPONENTS --- */
+/* --- CARDS & COMPONENTS (Keep as is) --- */
 .card-base { background-color: rgba(18, 18, 18, 0.85); backdrop-filter: blur(5px); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--color-border); box-shadow: var(--shadow-card); transition: all 0.3s ease; }
 .card-base.interactive:hover { border-color: var(--color-accent); box-shadow: var(--shadow-glow); transform: translateY(-4px); }
 .strength-icon-wrapper { flex-shrink: 0; background-color: var(--color-accent); color: var(--color-bg-primary); padding: 0.75rem; border-radius: 0.5rem; }
@@ -235,12 +303,12 @@ nav ul { border-color: var(--color-border); }
 .project-details-button { display: flex; align-items: center; font-size: 0.875rem; color: var(--color-accent); font-weight: 500; transition: color 0.2s ease; }
 .project-details-button:hover { color: var(--color-accent-hover); text-decoration: underline; }
 
-/* --- CONTACT SECTION --- */
+/* --- CONTACT SECTION (Keep as is) --- */
 .contact-label { font-size: 0.875rem; color: var(--color-text-dim); font-weight: 600; }
 .contact-value { font-size: 1.125rem; }
 .contact-value a:hover { color: var(--color-accent-hover); }
 
-/* --- PROJECT MODAL --- */
+/* --- PROJECT MODAL (Keep as is) --- */
 #projectModal { transition: opacity 0.3s ease-in-out; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
 .modal-open { overflow: hidden; }
 .modal-content-area { background-color: rgba(18, 18, 18, 0.95); border-radius: 0.5rem; border: 1px solid var(--color-border-accent); box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); max-height: 90vh; display: flex; flex-direction: column; }
@@ -251,74 +319,3 @@ nav ul { border-color: var(--color-border); }
 .view-project-button:hover { background-color: var(--color-accent-hover); color: #000; box-shadow: var(--shadow-glow-hard); transform: translateY(-2px); }
 .cancel-button { display: inline-block; padding: 0.625rem 1.25rem; background-color: var(--color-bg-tertiary); color: var(--color-text-secondary); font-family: var(--font-mono); text-decoration: none; border-radius: 0.375rem; transition: all 0.2s ease; border: 1px solid var(--color-border); margin-left: 0.5rem; }
 .cancel-button:hover { background-color: var(--color-border); color: var(--color-text-primary); }
-
-/* --- MOBILE SPECIFIC STYLES (applies when screen width < 768px) --- */
-@media (max-width: 767px) {
-  /* Hide desktop sidebar behavior */
-
-  #sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    transform: translateX(-100%); /* Start off-screen */
-    transition: transform 0.3s ease-out;
-    z-index: 40; /* Above main content, below splash */
-  }
-  #sidebar.open {
-    transform: translateX(0); /* Slide in */
-    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
-  }
-  #sidebar-profile-pic { /* Adjusted for mobile sidebar padding/centering */
-    margin-top: 4rem; /* Give space below close button */
-  }
-
-  /* Adjust main content for mobile layout */
-  #main-content {
-    margin-top: 64px; /* Space for fixed mobile header (p-4 + height of menu button) */
-    position: relative; /* Allow z-index */
-    z-index: 1;
- 
-  }
-
-  /* Main nav should be vertical in mobile sidebar */
-  nav ul {
-    flex-direction: column;
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-top: 1.5rem;
-
-  }
-  nav ul li {
-    width: 100%;
-    margin-bottom: 0.5rem; /* Space between links */
-  }
-  nav ul li a {
-    justify-content: flex-start; /* Align links to left */
-    padding: 0.75rem 1rem;
-    border-radius: 0.375rem;
-  }
-  nav {
-    background-color: transparent; /* No background for nav inside sidebar */
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-    position: static; /* Not sticky inside sliding sidebar */
-  }
-
-  /* Hide main nav links on mobile when sidebar is closed (default state) */
-  #main-nav { display: flex; } /* Display flex in CSS, JS handles visibility */
-
-  /* Splash text above images */
-  #splash-text-container {
-    z-index: 10;
-  }
-  /* Show only the morph profile pic on mobile */
-  #splash-profile-pic {
-    opacity: 1; /* Always visible for animation on mobile */
-    animation: pulse-glow-white 2s infinite ease-in-out; /* Keep pulse for initial state */
-  }
-  #splash-full-gif {
-    display: none; /* Hide GIF on mobile */
-  }
-}
