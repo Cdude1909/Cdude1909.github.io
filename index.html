@@ -13,6 +13,12 @@
 <body class="bg-black text-theme-text-primary antialiased">
 
   <!-- Splash Screen -->
+<video autoplay muted loop playsinline id="background-video">
+    <source src="images/background.webm" type="video/webm">
+    <source src="images/background.mp4" type="video/mp4">
+    <!-- Fallback image if video is not supported -->
+    <img src="images/background.jpg" alt="Your background image (fallback)">
+  </video>
   <div id="splash-screen">
     <!-- Full-screen GIF for Desktop -->
     <img id="splash-full-gif" src="images/splash.gif" alt="Loading ... 🚀"> 

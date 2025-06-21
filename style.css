@@ -26,14 +26,21 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-body::before {
-  content: '';
+/* --- Background Video Styles --- */
+#background-video {
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background-image: url('images/background.gif'); /* From your provided CSS */
-  background-size: cover; background-position: center bottom; background-attachment: fixed;
-  filter: blur(4px) brightness(0.6); /* From your provided CSS */
-  z-index: -1; transform: scale(1.1);
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%) scale(1.1); /* Center and scale slightly for blur */
+  filter: brightness(0.6); /* Apply the same effects as before */
+  background-size: cover; /* Fallback for older browsers not supporting object-fit */
+  background-position: center bottom; /* Fallback */
+  object-fit: cover; /* Ensures video covers entire area */
 }
 #sidebar, #main-content {
   opacity: 0;

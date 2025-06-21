@@ -3,7 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const isDesktop = window.matchMedia("(min-width: 1025px)").matches;
   const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
   const isDesktopExperience = isDesktop && !isCoarsePointer;
-
+const backgroundVideo = document.getElementById('background-video');
+  if (backgroundVideo) {
+    backgroundVideo.play().catch(error => {
+      // Autoplay failed, but since it's muted and loops, it usually works.
+      // This catch is for cases where even muted autoplay is blocked (e.g., very restrictive browsers)
+      console.warn("Background video autoplay prevented:", error);
+      // Fallback to a static image if video can't play (optional, but good for accessibility)
+      if (backgroundVideo.poster) {
+        backgroundVideo.style.backgroundImage = `url(${backgroundVideo.poster})`;
+        backgroundVideo.style.backgroundSize = 'cover';
+        backgroundVideo.style.backgroundPosition = 'center bottom';
+        backgroundVideo.style.filter = 'blur(4px) brightness(0.6)'; // Re-apply filter
+        backgroundVideo.style.display = 'block'; // Ensure it's visible
+        backgroundVideo.remove(); // Remove the video element itself
+      }
+    });
+  }
   // --- Core DOM Elements ---
   const splashScreen = document.getElementById('splash-screen');
   const splashFullGif = document.getElementById('splash-full-gif');
