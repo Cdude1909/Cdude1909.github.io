@@ -22,53 +22,38 @@
       
       /* Glassmorphism Card Style */
       .glass-card {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(16, 185, 129, 0.05); /* Greenish tint */
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.1);
         transition: all 0.3s ease-in-out;
       }
       .glass-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 0 30px 4px rgba(0, 191, 255, 0.15);
-        border-color: rgba(0, 255, 255, 0.25);
+        box-shadow: 0 0 30px 4px rgba(16, 185, 129, 0.15);
+        border-color: rgba(16, 185, 129, 0.25);
       }
     
-    /* Animated Gradient Blob Background */
-    #blob {
-        background: linear-gradient(to right, aquamarine, mediumpurple);
-        height: 34vmax;
-        aspect-ratio: 1;
+    /* Animated Grid Background */
+    body::before {
+        content: "";
         position: fixed;
-        left: 50%;
-        top: 50%;
-        translate: -50% -50%;
-        border-radius: 50%;
-        animation: rotate 20s infinite;
-        opacity: 0.5;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image:
+            linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+        background-size: 40px 40px;
         z-index: -2;
         pointer-events: none;
+        animation: pan-grid 60s linear infinite;
     }
 
-    #blur {
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        z-index: -1;
-        backdrop-filter: blur(10vmax);
-        pointer-events: none;
-    }
-    
-    @keyframes rotate {
-      from {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1, 1.5) rotate(180deg);
-      }
-      to {
-        transform: translate(-50%, -50%) rotate(360deg);
-      }
+    @keyframes pan-grid {
+        0% { background-position: 0 0; }
+        100% { background-position: 400px 400px; }
     }
 
     /* Custom Cursor */
@@ -87,12 +72,12 @@
     .cursor-dot {
         width: 8px;
         height: 8px;
-        background-color: #00ffff; /* cyan */
+        background-color: #10b981; /* green-500 */
     }
     .cursor-outline {
         width: 40px;
         height: 40px;
-        border: 2px solid #00ffff80; /* semi-transparent cyan */
+        border: 2px solid #10b98180; /* semi-transparent green */
     }
     body:hover .cursor-dot,
     body:hover .cursor-outline {
@@ -112,7 +97,7 @@
     a:hover ~ .cursor-outline,
     button:hover ~ .cursor-outline {
         transform: translate(-50%, -50%) scale(1.5);
-        background-color: #00ffff20;
+        background-color: #10b98120;
     }
     a:hover ~ .cursor-dot,
     button:hover ~ .cursor-dot {
@@ -175,11 +160,9 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-CF2Tnr3e.js"></script>
+  <script type="module" crossorigin src="/assets/index-mDmvQ_0x.js"></script>
 </head>
   <body>
-    <div id="blob"></div>
-    <div id="blur"></div>
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
     <div id="root"></div>
