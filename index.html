@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,30 +8,59 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {}
+        }
+      }
+    </script>
     <style>
       html {
         scroll-behavior: smooth;
         cursor: none;
       }
+      
+      /* Theme Variables */
+      :root {
+        --bg-color: #ffffff; /* Clean white for light mode */
+        --text-color: #1f2937;
+        --glass-bg: rgba(243, 244, 246, 0.8); /* Slight gray tint for cards */
+        --glass-border: rgba(0, 0, 0, 0.05);
+        --glass-shadow: rgba(0, 0, 0, 0.05);
+        --grid-line: rgba(0, 0, 0, 0.03);
+      }
+      
+      html.dark {
+        --bg-color: #010108;
+        --text-color: #e5e7eb;
+        --glass-bg: rgba(16, 185, 129, 0.05);
+        --glass-border: rgba(16, 185, 129, 0.1);
+        --glass-shadow: rgba(16, 185, 129, 0.15);
+        --grid-line: rgba(16, 185, 129, 0.08);
+      }
+
       body {
-        background-color: #010108;
-        color: #e5e7eb; /* default text-gray-200 */
+        background-color: var(--bg-color);
+        color: var(--text-color);
         font-family: 'Inter', sans-serif;
         overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       
       /* Glassmorphism Card Style */
       .glass-card {
-        background: rgba(16, 185, 129, 0.05); /* Greenish tint */
+        background: var(--glass-bg);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(16, 185, 129, 0.1);
+        border: 1px solid var(--glass-border);
         transition: all 0.3s ease-in-out;
       }
       .glass-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 0 30px 4px rgba(16, 185, 129, 0.15);
-        border-color: rgba(16, 185, 129, 0.25);
+        box-shadow: 0 0 30px 4px var(--glass-shadow);
+        border-color: var(--glass-border);
       }
     
     /* Animated Grid Background */
@@ -43,12 +72,13 @@
         width: 100vw;
         height: 100vh;
         background-image:
-            linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+            linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
         background-size: 40px 40px;
         z-index: -2;
         pointer-events: none;
         animation: pan-grid 60s linear infinite;
+        transition: background-image 0.3s ease;
     }
 
     @keyframes pan-grid {
@@ -160,7 +190,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-BJd6_cjc.js"></script>
+  <script type="module" crossorigin src="/assets/index-CFxlTCeK.js"></script>
 </head>
   <body>
     <div class="cursor-dot"></div>
