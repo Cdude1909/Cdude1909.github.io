@@ -24,21 +24,21 @@
       
       /* Theme Variables */
       :root {
-        --bg-color: #ffffff; /* Clean white for light mode */
+        --bg-color: #ffffff;
         --text-color: #1f2937;
-        --glass-bg: rgba(243, 244, 246, 0.8); /* Slight gray tint for cards */
+        --glass-bg: rgba(255, 255, 255, 0.7);
         --glass-border: rgba(0, 0, 0, 0.05);
-        --glass-shadow: rgba(0, 0, 0, 0.05);
+        --glass-shadow: rgba(168, 85, 247, 0.1);
         --grid-line: rgba(0, 0, 0, 0.03);
       }
       
       html.dark {
         --bg-color: #010108;
         --text-color: #e5e7eb;
-        --glass-bg: rgba(16, 185, 129, 0.05);
-        --glass-border: rgba(16, 185, 129, 0.1);
-        --glass-shadow: rgba(16, 185, 129, 0.15);
-        --grid-line: rgba(16, 185, 129, 0.08);
+        --glass-bg: rgba(15, 15, 25, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+        --glass-shadow: rgba(0, 0, 0, 0.4);
+        --grid-line: rgba(168, 85, 247, 0.05);
       }
 
       body {
@@ -46,21 +46,21 @@
         color: var(--text-color);
         font-family: 'Inter', sans-serif;
         overflow-x: hidden;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: background-color 0.5s ease, color 0.5s ease;
       }
       
       /* Glassmorphism Card Style */
       .glass-card {
         background: var(--glass-bg);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border: 1px solid var(--glass-border);
-        transition: all 0.3s ease-in-out;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
       }
       .glass-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 0 30px 4px var(--glass-shadow);
-        border-color: var(--glass-border);
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 25px 50px -12px var(--glass-shadow);
+        border-color: rgba(168, 85, 247, 0.2);
       }
     
     /* Animated Grid Background */
@@ -78,7 +78,7 @@
         z-index: -2;
         pointer-events: none;
         animation: pan-grid 60s linear infinite;
-        transition: background-image 0.3s ease;
+        transition: background-image 0.5s ease;
     }
 
     @keyframes pan-grid {
@@ -100,21 +100,21 @@
         transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
     }
     .cursor-dot {
-        width: 8px;
-        height: 8px;
-        background-color: #10b981; /* green-500 */
+        width: 6px;
+        height: 6px;
+        background-color: #a855f7; /* Purple Theme */
+        box-shadow: 0 0 10px #a855f7;
     }
     .cursor-outline {
-        width: 40px;
-        height: 40px;
-        border: 2px solid #10b98180; /* semi-transparent green */
+        width: 34px;
+        height: 34px;
+        border: 1.5px solid rgba(168, 85, 247, 0.4);
     }
     body:hover .cursor-dot,
     body:hover .cursor-outline {
         opacity: 1;
     }
     
-    /* Hide cursor during boot animation */
     body.is-booting {
       cursor: none !important;
     }
@@ -126,12 +126,13 @@
     /* Cursor hover effect */
     a:hover ~ .cursor-outline,
     button:hover ~ .cursor-outline {
-        transform: translate(-50%, -50%) scale(1.5);
-        background-color: #10b98120;
+        transform: translate(-50%, -50%) scale(1.6);
+        background-color: rgba(168, 85, 247, 0.08);
+        border-color: rgba(168, 85, 247, 0.8);
     }
     a:hover ~ .cursor-dot,
     button:hover ~ .cursor-dot {
-        transform: translate(-50%, -50%) scale(0.75);
+        transform: translate(-50%, -50%) scale(0.5);
     }
     a, button {
       cursor: none;
@@ -149,12 +150,11 @@
         }
     }
 
-
     /* Scroll Animations */
     .scroll-animate {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
     }
     .scroll-animate.is-visible {
       opacity: 1;
@@ -163,24 +163,24 @@
 
     /* App Fade-in Animation */
     @keyframes appFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0; filter: blur(10px); }
+      to { opacity: 1; filter: blur(0); }
     }
     .app-fade-in {
-      animation: appFadeIn 1s ease-in-out;
+      animation: appFadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     }
     
     /* Interactive Card Content Animation */
     @keyframes contentFadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from { opacity: 0; transform: translateY(15px) scale(0.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
     }
     .content-fade-in {
-        animation: contentFadeIn 0.5s ease-in-out;
+        animation: contentFadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
     </style>
 
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
   <script type="importmap">
 {
   "imports": {
@@ -190,7 +190,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-CFxlTCeK.js"></script>
+  <script type="module" crossorigin src="/assets/index-CUG319Nj.js"></script>
 </head>
   <body>
     <div class="cursor-dot"></div>
