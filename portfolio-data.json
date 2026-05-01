@@ -1,0 +1,286 @@
+{
+  "aboutText": "A cybersecurity enthusiast focused on ethical hacking, digital forensics, and system hardening. Experienced in vulnerability research, automation, and secure development, committed to building safer tech through innovation and teamwork.",
+  "profileImgUrl": "https://res.cloudinary.com/dzz8i0ytf/image/upload/fl_preserve_transparency/v1750574379/download_j9ncat.jpg?_s=public-apps",
+  "cvUrl": "https://drive.google.com/file/d/1eNFlQ2cjsHEzH7Kz_TZWLxdQZrVo-YiJ/view?usp=sharing",
+  "contactInfo": {
+    "email": "joshikartik2003@gmail.com",
+    "location": "Ahmedabad, Gujarat"
+  },
+  "socialLinks": [
+    { "name": "GitHub", "url": "https://github.com/cdude1909" },
+    { "name": "LinkedIn", "url": "https://linkedin.com/in/kartikjoshii" },
+    { "name": "Email", "url": "mailto:joshikartik2003@gmail.com" }
+  ],
+  "education": {
+    "institution": "National Forensic Sciences University",
+    "degree": "Bachelor's & Master's in Computer Science & Engineering with Cybersecurity [Integrated]",
+    "period": "2021 - 2026"
+  },
+  "strengths": [
+    { "title": "Risk Assessment & Management", "description": "Ability to assess risks and take decisions accordingly.", "iconId": "shield" },
+    { "title": "Communication", "description": "Effective in communicating with team members and in general technical discussions.", "iconId": "chat" },
+    { "title": "Leadership", "description": "Demonstrates leadership in team environments and possesses effective communication skills.", "iconId": "user" },
+    { "title": "Teamwork", "description": "Ability to work well in teams to achieve common goals and project success.", "iconId": "users" }
+  ],
+  "skills": [
+    {
+      "title": "Security & Forensics",
+      "skills": [
+        { "name": "Web Penetration Testing" },
+        { "name": "Mobile Forensics (Android & iOS)" },
+        { "name": "Burp Suite" },
+        { "name": "Metasploit" },
+        { "name": "Reverse Engineering" },
+        { "name": "Wireshark" },
+        { "name": "Snort" },
+        { "name": "SCADA" },
+        { "name": "IAM (Identity & Access Management)" }
+      ]
+    },
+    {
+      "title": "Programming & Scripting",
+      "skills": [
+        { "name": "Python" },
+        { "name": "Bash" },
+        { "name": "C" },
+        { "name": "PowerShell" },
+        { "name": "HTML/CSS/JS" },
+        { "name": "Assembly" }
+      ]
+    },
+    {
+      "title": "OS & Virtualization",
+      "skills": [
+        { "name": "Linux" },
+        { "name": "macOS" },
+        { "name": "IOS" },
+        { "name": "Android" },
+        { "name": "UEFI" },
+        { "name": "QEMU" },
+        { "name": "Docker" },
+        { "name": "Proxmox VE" },
+        { "name": "Windows & Server" },
+        { "name": "KVM" },
+        { "name": "Firmware Analysis" }
+      ]
+    },
+    {
+      "title": "Tools & Technologies",
+      "skills": [
+        { "name": "Git & Github" },
+        { "name": "Disk Cloning" },
+        { "name": "AI Integration" },
+        { "name": "Prompt Engineering" },
+        { "name": "WebAssembly" },
+        { "name": "Hardware Security" },
+        { "name": "Arduino" },
+        { "name": "MCU" },
+        { "name": "Physics of Semi-Conductors" }
+      ]
+    }
+  ],
+  "certifications": [
+    { "title": "ISEA CYBERSECURITY AWARNESS COMPETITION 2025 by MeitY", "description": "Secured AIR 1 in Technical Paper submission related to Cybersecurity Domain.", "url": "https://drive.google.com/file/d/16UcRcjC-vaoryOgVDY4aHfeGLG5BXY6L/view?usp=sharing" },
+    { "title": "CYBERSECURITY TRAINING FOR CENTRAL DEPARTMENT", "description": "Successfully completed the Quiz organised by MeIty.", "url": "https://drive.google.com/file/d/1A1GK_ji8njcX7GrKOjL8dNnzSodOXZZ_/view?usp=sharing" },
+    { "title": "G20's STAY SAFE CAMPAIGN", "description": "Participated for the Cyber hygene Practices,organised by CDAC,Hyderabad under G20's Presidency.", "url": "https://drive.google.com/file/d/1ObIMpbWx5lhWrWIm0whTaMfQ7cD7NyVe/view?usp=sharing" },
+    { "title": "Amazon Academy - Introduction to Cloud", "description": "Learned Cloud Infrastructure & Basics via AWS academy!", "url": "https://drive.google.com/file/d/1LBh_4sksvVSu0yJtYhiTy88GgdMPDChS/view?usp=sharing" },
+    { "title": "Industry 4.0 Best Practice & Cybersecurity Landscape", "description": "Workshop on Cybersecurity perspective of Industry 4.0 & its best practice", "url": "https://drive.google.com/file/d/13iXrtnnbBdeGnkKnPprvLTdD8skhn0fs/view?usp=sharing" }
+  ],
+  "projects": [
+    {
+      "title": "Efficient Image Upscaling for Low-End Graphics Cards",
+      "description": "Contributed to research on hybrid, lightweight upscaling techniques combining spatial enhancement and adaptive neural networks. The goal was to deliver high-quality images while minimizing GPU workload and VRAM usage, making near-native resolution viable for budget hardware.",
+      "image": "https://noping.com/_next/image?url=%2Fassets%2Fimages%2Ffeatures%2Fboost-fps%2Ffirst.webp&w=640&q=75",
+      "liveUrl": "https://www.linkedin.com/posts/kartikjoshii_amd-fsr-nvidia-activity-7365930339921281024-eF69?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEkFHHIBYR2i55hVH8IIcsibVg1YkcAuXcQ",
+      "tech": ["Image Upscaling", "Neural Networks", "GPU Optimization", "Real-Time Rendering", "C++", "Vulkan/DirectX"],
+      "role": "Contributor & Researcher"
+    },
+    {
+      "title": "Kali-JS: Live Kali Linux in Browser",
+      "description": "A live Kali Linux instance booted inside any modern browser using WebAssembly and v86. No VM or ISO required. All changes persist in browser's local storage, offering a seamless, sandboxed environment for security testing and education.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1755668085/Untitled_dvzdpi.png",
+      "liveUrl": "https://kali-js.netlify.app",
+      "sourceUrl": "https://www.github.com/cdude1909/kali_js",
+      "tech": ["WebAssembly", "v86", "React", "Kali Linux", "JavaScript", "Browser Storage"]
+    },
+    {
+      "title": "Troubleshoot.ai",
+      "description": "An AI assistant that provides visual, step-by-step resolutions for IT issues. Built using OpenRouter API and web technologies to assist with network, OS, and browser-related problems.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1751004400/logoo_minqat.png",
+      "liveUrl": "https://troubleshoot-ai.netlify.app",
+      "tech": ["HTML", "JavaScript", "Tailwind", "API", "AI"]
+    },
+    {
+      "title": "UEFI Disk Cloning Utility™",
+      "description": "Clones entire disks or partitions directly from UEFI without needing an OS. Designed for DFIR professionals. Supports GPT, resume-after-failure, hashing, NVRAM logging, and backup GPT restoration.",
+      "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/0*pjuNTdHy94bN0uy1.jpeg",
+      "liveUrl": "https://medium.com/@joshikartik2003/uefi-disk-cloning-utility-demo-e764132e8a8a",
+      "tech": ["UEFI", "C", "Firmware", "Disk I/O", "GPT", "NVRAM", "QEMU"]
+    },
+    {
+      "title": "Automated macOS Installer",
+      "description": "Automated the process of creating a bootable USB for macOS/non-Apple devices on Linux & macOS environments.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1753007941/image-removebg-preview_t79pvi.png",
+      "sourceUrl": "https://www.github.com/cdude1909/Automated-macos-installer",
+      "tech": ["macOS", "Linux", "Bash Scripting", "Automation"]
+    },
+    {
+      "title": "Pkg2Dmg",
+      "description": "Converted Apple's proprietary .pkg to .dmg formats using modified Pbzx for decompressing Apple archive chunks.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1753005716/Untitled-removebg-preview-removebg-preview_jpqhlr.png",
+      "sourceUrl": "https://www.github.com/cdude1909/pkg2dmg",
+      "tech": ["macOS", "Linux", "Python", "File Formats"]
+    },
+    {
+      "title": "Mobile Forensics [Android, iOS]",
+      "description": "In-depth analysis including Root, OEM Unlock (Bootloader), Custom ROM, De-Odex, iOS-exploit (checkm8, palra1n, etc.), DualBoot-IOS, Partition Management for Android & iOS.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1753005874/gettyimages-1419036551-612x612_k6qysj.jpg",
+      "tech": ["Android", "iOS", "Mobile Forensics", "checkm8", "palra1n", "Rooting"]
+    },
+    {
+      "title": "C2EFI - UEFI Forensics & Testing Utility",
+      "description": "Converts C source to UEFI .efi binary using GCC & LLD. Automates QEMU boot testing for UEFI binaries. Lightweight, Bash-based workflow for rapid .efi prototyping.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1753006248/Untitled-removebg-preview_aksxtp.png",
+      "sourceUrl": "https://www.github.com/cdude1909/c2efi",
+      "tech": ["UEFI", "C", "GCC", "LLD", "QEMU", "Bash", "Firmware Testing"]
+    }
+  ],
+  "papers": [
+    {
+      "title": "ICS Auditor - Technical Compliance Framework",
+      "description": "An automated compliance auditing tool specifically designed for Industrial Control Systems (ICS). It evaluates infrastructure reports against cybersecurity frameworks like NIST SP 800-82 and ISA/IEC 62443, identifying configuration gaps and vulnerabilities in PLCs and HMIs. This research focuses on the automation of security posture validation in critical infrastructure.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1777618265/Screenshot_2026-05-01_121325_wregqh.png",
+      "previewImage": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1777618265/Screenshot_2026-05-01_121402_nqwsbd.png",
+      "url": "https://drive.google.com/file/d/1CYZImJqTkzCBSjmENXQNfIxroEMaIJ-M/view?usp=sharing",
+      "tags": ["ICS Security", "SCADA", "Compliance Standards", "NIST SP 800-82", "Industrial Cybersecurity"]
+    },
+    {
+      "title": "ESP32-S3 Based Reconnaissance & Attack Tool",
+      "description": "Completed research on using the ESP32-S3 microcontroller for offensive reconnaissance. Investigated whether low-cost devices can effectively attack systems and gather infrastructure intelligence within local networks via Wi-Fi and Bluetooth. Developed custom firmware to execute attacks like de-auth, packet flooding, and Bluetooth flooding. Validated the potential of cheap hardware in compromising infrastructure security.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/v1765886093/Screenshot_2025-12-01_095204_yem0yt.png",
+      "url": "https://drive.google.com/file/d/1i6QHE6UeuCmH2l6dEe5I96g07e5gGVVE/view?usp=sharing",
+      "tags": ["ESP32-S3", "Embedded Linux", "Wi-Fi Attacks", "Bluetooth Attacks", "Firmware", "C"],
+      "visualizedUrl": "https://esp32s3.netlify.app/"
+    },
+    {
+      "title": "UEFI Disk Cloning Utility™ & Memory Operations",
+      "description": "This Paper discuss about my UEFI-based utility for forensic and security analysis, enabling full system memory dumping (including restricted regions) and sector-by-sector disk cloning. This tool provides critical low-level access for vulnerability detection and incident response before the operating system loads, and has been rigorously tested across virtualized and physical environments.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/Screenshot_2025-06-23_151934_feeomc.png",
+      "url": "https://drive.google.com/file/d/1-5fYz-EYrj-cPU5x7A8qEw_9oes-9NKb/view?usp=sharing",
+      "tags": ["UEFI Forensics", "Memory Dumping", "Disk Cloning", "Digital Forensics", "Incident Response", "Firmware"],
+      "visualizedUrl": "https://uefithesis.netlify.app"
+    },
+    {
+      "title": "Automated macOS Installer & Penetration Testing",
+      "description": "This project automates the creation of Hackintosh macOS installers and PKG-to-DMG converters within a Linux environment. It significantly streamlines complex setup processes like USB mapping and EFI configuration, achieving a 60% reduction in setup time and manual effort. The paper also includes vulnerability analysis using penetration of macOS and demonstrates few CVE's published.Moreover, it is also tested on various Versions of macOS to confirm whether the Vulenrability has been patched or not.it has mostly discussed about Privellege Escalation & RCE vulenrabilities via system or 3rd party app.",
+      "image": "https://res.cloudinary.com/dzz8i0ytf/image/upload/Screenshot_2025-06-23_151120_ojxe3p.png",
+      "url": "https://drive.google.com/file/d/1Y6_k2vCfxXkVsqP9hjov9bYNThZ4zSiR/view?usp=sharing",
+      "tags": ["macOS Automation", "Hackintosh", "PKG/DMG", "Bash Scripting", "Vulnerability Analysis", "Penetration Testing"],
+      "visualizedUrl": "https://macosthesis.netlify.app/"
+    }
+  ],
+  "courses": [
+    {
+      "id": "sem1",
+      "title": "Semester I",
+      "courses": [
+        "Engineering Physics",
+        "Engineering Mathematics - 1",
+        "Basics of Electrical Engineering",
+        "Fundamentals in Computer Programming with C",
+        "Engineering Graphics",
+        "Communication Skills"
+      ]
+    },
+    {
+      "id": "sem2",
+      "title": "Semester II",
+      "courses": [
+        "Engineering Chemistry",
+        "Engineering Mathematics - 2",
+        "Object Oriented Programming with C++",
+        "Digital Logic Design",
+        "Professional Ethics",
+        "Fundamentals of Forensic Sciences & Laws"
+      ]
+    },
+    {
+      "id": "sem3",
+      "title": "Semester III",
+      "courses": [
+        "Engineering Mathematics - 3",
+        "Data Structures",
+        "Database Management Systems",
+        "Java Programming",
+        "Computer Organization & Architecture",
+        "System Analysis Design & UML"
+      ]
+    },
+    {
+      "id": "sem4",
+      "title": "Semester IV",
+      "courses": [
+        "Engineering Mathematics - 4",
+        "Computer Networks",
+        "Microprocessor & Microcontroller",
+        "Operating System",
+        "Cryptography",
+        ".Net Programming"
+      ]
+    },
+    {
+      "id": "sem5",
+      "title": "Semester V",
+      "courses": [
+        "Advance Computer Networks",
+        "Web Development Technology",
+        "Computer Programming with Python",
+        "Theory of Computation",
+        "Wireless Communication & Mobile Computing",
+        "Cloud Computing"
+      ]
+    },
+    {
+      "id": "sem6",
+      "title": "Semester VI",
+      "courses": [
+        "Modern Software Engineering",
+        "Essentials of Cyber Security",
+        "Compiler Design",
+        "Vocational Skills & Personality Development",
+        "Advance Java Programming",
+        "Computer Graphics"
+      ]
+    },
+    {
+      "id": "sem7",
+      "title": "Semester VII",
+      "courses": [
+        "Vulnerability Analysis & Web App Security",
+        "Cyber Law, Policies and Compliance",
+        "Artificial Intelligence",
+        "Information and Network Security",
+        "Physics of Semiconductor Devices"
+      ]
+    },
+    {
+      "id": "sem8",
+      "title": "Semester VIII",
+      "courses": [
+        "Mobile Phone Security",
+        "Malware Analysis",
+        "Incident Response Management & Threat Hunting",
+        "Semiconductor Hardware Design & Security"
+      ]
+    },
+    {
+      "id": "sem9",
+      "title": "Semester IX",
+      "courses": [
+        "Blockchain Security",
+        "Advanced Digital Forensics",
+        "Supervisory Control And Data Acquisition"
+      ]
+    }
+  ]
+}
