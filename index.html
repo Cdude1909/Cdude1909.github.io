@@ -23,7 +23,7 @@
         --text-secondary: #4b5563;
         --accent-primary: #7c3aed;
         --accent-secondary: #4f46e5;
-        --surface-glass: rgba(255, 255, 255, 0.7);
+        --surface-glass: rgba(240, 240, 244, 0.85);
         --border-glass: rgba(0, 0, 0, 0.08);
       }
 
@@ -33,7 +33,7 @@
         --text-secondary: #9ca3af;
         --accent-primary: #a78bfa;
         --accent-secondary: #818cf8;
-        --surface-glass: rgba(10, 10, 15, 0.5);
+        --surface-glass: rgba(6, 6, 9, 0.88);
         --border-glass: rgba(255, 255, 255, 0.1);
       }
 
@@ -102,6 +102,7 @@
       /* Custom Cursor */
       .cursor-dot,
       .cursor-outline {
+          display: none;
           pointer-events: none;
           position: fixed;
           top: 0;
@@ -110,6 +111,12 @@
           z-index: 9999;
           opacity: 0;
           transition: opacity 0.3s ease;
+      }
+      @media (min-width: 1024px) {
+        .cursor-dot,
+        .cursor-outline {
+          display: block;
+        }
       }
       .cursor-dot {
           width: 8px;
@@ -165,7 +172,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-DQySPoz9.js"></script>
+  <script type="module" crossorigin src="/assets/index-DZi4flqm.js"></script>
 </head>
   <body>
     <div class="cursor-dot"></div>
