@@ -77,19 +77,119 @@
         transform: translateY(-4px);
       }
 
-      /* Clean Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
+      /* Remove traditional scrollbar completely */
+      html, body, * {
+        scrollbar-width: none !important; /* Firefox */
+        -ms-overflow-style: none !important; /* IE and Edge */
       }
-      ::-webkit-scrollbar-track {
-        background: var(--bg-primary);
+      *::-webkit-scrollbar,
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none !important; /* Chrome, Safari, Opera */
+        width: 0px !important;
+        height: 0px !important;
+        background: transparent !important;
       }
-      ::-webkit-scrollbar-thumb {
-        background: var(--border-glass);
-        border-radius: 10px;
+
+      /* CSS Morphing Gradients Animations */
+      @keyframes morphBlob1 {
+        0%, 100% {
+          border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+          transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+        }
+        33% {
+          border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+          transform: translate3d(5vw, 4vh, 0) rotate(120deg) scale(1.18);
+        }
+        66% {
+          border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+          transform: translate3d(-4vw, -3vh, 0) rotate(240deg) scale(0.95);
+        }
       }
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--accent-primary);
+
+      @keyframes morphBlob2 {
+        0%, 100% {
+          border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+        }
+        33% {
+          border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+          transform: translate3d(-6vw, 5vh, 0) rotate(-120deg) scale(1.22);
+        }
+        66% {
+          border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+          transform: translate3d(4vw, -5vh, 0) rotate(-240deg) scale(0.9);
+        }
+      }
+
+      @keyframes morphBlob3 {
+        0%, 100% {
+          border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+          transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+        }
+        50% {
+          border-radius: 35% 65% 60% 40% / 40% 40% 60% 60%;
+          transform: translate3d(3vw, -4vh, 0) scale(1.15) rotate(180deg);
+        }
+      }
+
+      @keyframes auraGlowPulse {
+        0%, 100% {
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.95;
+          transform: scale(1.06);
+        }
+      }
+
+      .animate-morph-1 {
+        animation: morphBlob1 38s ease-in-out infinite;
+        will-change: transform, border-radius;
+      }
+
+      .animate-morph-2 {
+        animation: morphBlob2 45s ease-in-out infinite;
+        will-change: transform, border-radius;
+      }
+
+      .animate-morph-3 {
+        animation: morphBlob3 52s ease-in-out infinite;
+        will-change: transform, border-radius;
+      }
+
+      .animate-aura-glow {
+        animation: auraGlowPulse 4s ease-in-out infinite;
+      }
+
+      /* Slow Orbiting Gradient Bubble Animations around Explore Projects Button */
+      @keyframes orbitOrbPrimary {
+        0% {
+          transform: translate3d(-50%, -50%, 0) rotate(0deg) translateX(118px) rotate(0deg);
+        }
+        100% {
+          transform: translate3d(-50%, -50%, 0) rotate(360deg) translateX(118px) rotate(-360deg);
+        }
+      }
+
+      @keyframes orbitOrbSecondary {
+        0% {
+          transform: translate3d(-50%, -50%, 0) rotate(180deg) translateX(105px) rotate(-180deg);
+        }
+        100% {
+          transform: translate3d(-50%, -50%, 0) rotate(540deg) translateX(105px) rotate(-540deg);
+        }
+      }
+
+      .animate-orbit-orb-1 {
+        animation: orbitOrbPrimary 14s linear infinite;
+        will-change: transform;
+      }
+
+      .animate-orbit-orb-2 {
+        animation: orbitOrbSecondary 19s linear infinite;
+        will-change: transform;
       }
 
       /* Hide default cursor on desktop */
@@ -162,7 +262,6 @@
       }
     </style>
 
-  <link rel="stylesheet" href="/index.css">
   <script type="importmap">
 {
   "imports": {
@@ -172,7 +271,8 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-DZi4flqm.js"></script>
+  <script type="module" crossorigin src="/assets/index-9P-0459j.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-tn0RQdqM.css">
 </head>
   <body>
     <div class="cursor-dot"></div>
